@@ -1,2 +1,6 @@
-# zk-memory-poc
-A lightweight Proof of Concept for the Endless Ecosystem Creative Proposal Competition — ZK Memory Capsule turns group chats into NFTs with ZK-proof privacy. Built with HTML/CSS/JS — no backend required.
+# ZK Memory Capsule — Luffa Upgrade
+
+A lightweight POC for the Endless Creative Proposal Competition.
+
+✅ Demo: https://zk-memory-poc.vercel.app  
+✅ Repo: https://github.com/duchth1993/zk-memory-poc

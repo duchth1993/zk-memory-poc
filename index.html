@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZK Memory Capsule — Luffa Upgrade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f0c14;
+            --card: #1a1223;
+            --border: #ff2a5c;
+            --text: #e0e0e0;
+            --red: #ff2a5c;
+            --green: #4ade80;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(to right, #ff2a5c, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .chat {
+            background: var(--card);
+            border: 2px solid rgba(255, 42, 92, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 3px solid var(--red);
+        }
+        .vote {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-red {
+            background: var(--red);
+            color: white;
+        }
+        .btn-green {
+            background: var(--green);
+            color: #0f0c14;
+        }
+        .capsule {
+            background: var(--card);
+            border: 2px solid rgba(255, 42, 92, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .capsule-img {
+            width: 200px;
+            height: 200px;
+            border: 2px solid var(--red);
+            border-radius: 12px;
+            margin: 0 auto 20px;
+            background: rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .zk-proof {
+            background: rgba(255, 42, 92, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">ZK Memory Capsule</div>
+            <p>Save group chats as NFTs — with ZK-proof privacy</p>
+        </div>
+
+        <div class="chat">
+            <div class="message"><strong>Alice</strong>: Deployed my first gasless contract today! 🎉</div>
+            <div class="message"><strong>Bob</strong>: Nice! Did you use Sponsored Tx?</div>
+            <div class="message"><strong>Tino</strong>: Yes — and ZK-proof for identity. No email leaked.</div>
+            
+            <div class="vote">
+                <button class="btn btn-green" onclick="mintCapsule()">
+                    ✅ Save as Memory Capsule
+                </button>
+                <button class="btn btn-red">
+                    ❌ Skip
+                </button>
+            </div>
+        </div>
+
+        <div class="capsule" id="capsule" style="display:none">
+            <h3>✨ Memory Capsule Minted!</h3>
+            <div class="capsule-img">
+                <img src="/happy-capsule.png" alt="Happy Capsule">
+            </div>
+            <div class="zk-proof">
+                🔐 ZK-Proof: 3 unique DID members participated.<br>
+                🧠 AI Summary: "Gasless deployment with privacy-preserving ZK-proof."
+            </div>
+            <button class="btn btn-red" onclick="share()">
+                📲 Share on X
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function mintCapsule() {
+            document.getElementById('capsule').style.display = 'block';
+        }
+
+        function share() {
+            const text = encodeURIComponent(
+                "Just minted a ZK Memory Capsule on @EndlessProtocol —\n" +
+                "A group chat, saved as NFT with ZK-proof privacy.\n" +
+                "No names. Just proof.\n" +
+                "#Endless #ZKProof #Luffa"
+            );
+            window.open(`https://x.com/intent/tweet?text=${text}`, '_blank');
+        }
+    </script>
+</body>
+</html>
